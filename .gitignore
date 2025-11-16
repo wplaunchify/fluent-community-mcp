@@ -4,3 +4,6 @@ build
 package-lock.json
 logs
 *.code-workspace
+*.tgz
+package/
+temp-instawp/
