@@ -1,6 +1,6 @@
 {
   "name": "@wplaunchify/fluent-community-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Model Context Protocol server for WordPress + FluentCommunity. Includes all WordPress tools plus FluentCommunity management (posts, spaces, comments, members, analytics).",
   "type": "module",
   "main": "./build/server.js",
