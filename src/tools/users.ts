@@ -94,7 +94,7 @@ export const userTools: Tool[] = [
 export const userHandlers = {
   list_users: async (params: ListUsersParams) => {
     try {
-      const response = await makeWordPressRequest('GET', "users", params);
+      const response = await makeWordPressRequest('GET', "wp/v2/users", params);
       const users: WPUser[] = response;
       return {
         toolResult: {
@@ -113,7 +113,7 @@ export const userHandlers = {
   },
   get_user: async (params: GetUserParams) => {
     try {
-      const response = await makeWordPressRequest('GET', `users/${params.id}`, { context: params.context });
+      const response = await makeWordPressRequest('GET', `wp/v2/users/${params.id}`, { context: params.context });
       const user: WPUser = response;
       return {
         toolResult: {
@@ -132,7 +132,7 @@ export const userHandlers = {
   },
   create_user: async (params: CreateUserParams) => {
     try {
-      const response = await makeWordPressRequest('POST', "users", params);
+      const response = await makeWordPressRequest('POST', "wp/v2/users", params);
       const user: WPUser = response;
       return {
         toolResult: {
@@ -152,7 +152,7 @@ export const userHandlers = {
   update_user: async (params: UpdateUserParams) => {
     try {
       const { id, ...updateData } = params;
-      const response = await makeWordPressRequest('POST', `users/${id}`, updateData);
+      const response = await makeWordPressRequest('POST', `wp/v2/users/${id}`, updateData);
       const user: WPUser = response;
       return {
         toolResult: {
@@ -171,7 +171,7 @@ export const userHandlers = {
   },
   delete_user: async (params: DeleteUserParams) => {
     try {
-      const response = await makeWordPressRequest('DELETE', `users/${params.id}`, { 
+      const response = await makeWordPressRequest('DELETE', `wp/v2/users/${params.id}`, { 
         force: params.force,
         reassign: params.reassign
       });

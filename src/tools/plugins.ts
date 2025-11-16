@@ -70,7 +70,7 @@ export const pluginTools: Tool[] = [
 export const pluginHandlers = {
   list_plugins: async (params: z.infer<typeof listPluginsSchema>) => {
     try {
-      const response = await makeWordPressRequest("GET", "plugins", params);
+      const response = await makeWordPressRequest("GET", "wp/v2/plugins", params);
       return {
         toolResult: {
           content: [{ type: "text", text: JSON.stringify(response, null, 2) }]
@@ -88,7 +88,7 @@ export const pluginHandlers = {
   },
   get_plugin: async (params: z.infer<typeof getPluginSchema>) => {
     try {
-      const response = await makeWordPressRequest("GET", `plugins/${params.plugin}`);
+      const response = await makeWordPressRequest("GET", `wp/v2/plugins/${params.plugin}`);
       return {
         toolResult: {
           content: [{ type: "text", text: JSON.stringify(response, null, 2) }]
@@ -106,7 +106,7 @@ export const pluginHandlers = {
   },
   activate_plugin: async (params: z.infer<typeof activatePluginSchema>) => {
     try {
-      const response = await makeWordPressRequest("POST", `plugins/${params.plugin}/activate`, params);
+      const response = await makeWordPressRequest("POST", `wp/v2/plugins/${params.plugin}/activate`, params);
       return {
         toolResult: {
           content: [{ type: "text", text: JSON.stringify(response, null, 2) }]
@@ -124,7 +124,7 @@ export const pluginHandlers = {
   },
   deactivate_plugin: async (params: z.infer<typeof deactivatePluginSchema>) => {
     try {
-      const response = await makeWordPressRequest("POST", `plugins/${params.plugin}/deactivate`, params);
+      const response = await makeWordPressRequest("POST", `wp/v2/plugins/${params.plugin}/deactivate`, params);
       return {
         toolResult: {
           content: [{ type: "text", text: JSON.stringify(response, null, 2) }]
@@ -142,7 +142,7 @@ export const pluginHandlers = {
   },
   create_plugin: async (params: z.infer<typeof createPluginSchema>) => {
     try {
-      const response = await makeWordPressRequest("POST", "plugins", params);
+      const response = await makeWordPressRequest("POST", "wp/v2/plugins", params);
       return {
         toolResult: {
           content: [{ type: "text", text: JSON.stringify(response, null, 2) }]

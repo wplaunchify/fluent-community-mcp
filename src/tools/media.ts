@@ -62,7 +62,7 @@ export const mediaTools: Tool[] = [
 export const mediaHandlers = {
   list_media: async (params: z.infer<typeof listMediaSchema>) => {
     try {
-      const response = await makeWordPressRequest("GET", "media", params);
+      const response = await makeWordPressRequest("GET", "wp/v2/media", params);
       return {
         toolResult: {
           content: [{ type: "text", text: JSON.stringify(response, null, 2) }]
@@ -102,7 +102,7 @@ export const mediaHandlers = {
         // Use the enhanced makeWordPressRequest function with FormData support
         const response = await makeWordPressRequest(
           'POST', 
-          'media', 
+          'wp/v2/media', 
           form, 
           {
             isFormData: true,
@@ -116,7 +116,7 @@ export const mediaHandlers = {
           }
         };
       } else {
-        const response = await makeWordPressRequest("POST", "media", params);
+        const response = await makeWordPressRequest("POST", "wp/v2/media", params);
         return {
           toolResult: {
             content: [{ type: "text", text: JSON.stringify(response, null, 2) }]
@@ -136,7 +136,7 @@ export const mediaHandlers = {
   edit_media: async (params: z.infer<typeof editMediaSchema>) => {
     try {
       const { id, ...updateData } = params;
-      const response = await makeWordPressRequest("POST", `media/${id}`, updateData);
+      const response = await makeWordPressRequest("POST", `wp/v2/media/${id}`, updateData);
       return {
         toolResult: {
           content: [{ type: "text", text: JSON.stringify(response, null, 2) }]
@@ -155,7 +155,7 @@ export const mediaHandlers = {
   delete_media: async (params: z.infer<typeof deleteMediaSchema>) => {
     try {
       const { id, ...deleteData } = params;
-      const response = await makeWordPressRequest("DELETE", `media/${id}`, deleteData);
+      const response = await makeWordPressRequest("DELETE", `wp/v2/media/${id}`, deleteData);
       return {
         toolResult: {
           content: [{ type: "text", text: JSON.stringify(response, null, 2) }]

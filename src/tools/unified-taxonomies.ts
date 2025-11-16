@@ -19,7 +19,7 @@ async function getTaxonomies(forceRefresh = false) {
 
   try {
     logToFile('Fetching taxonomies from API');
-    const response = await makeWordPressRequest('GET', 'taxonomies');
+    const response = await makeWordPressRequest('GET', 'wp/v2/taxonomies');
     taxonomiesCache = response;
     taxonomyCacheTimestamp = now;
     return response;
@@ -32,23 +32,23 @@ async function getTaxonomies(forceRefresh = false) {
 // Helper function to get the correct endpoint for a taxonomy
 function getTaxonomyEndpoint(taxonomy: string): string {
   const endpointMap: Record<string, string> = {
-    'category': 'categories',
-    'post_tag': 'tags',
-    'nav_menu': 'menus',
-    'link_category': 'link_categories'
+    'category': 'wp/v2/categories',
+    'post_tag': 'wp/v2/tags',
+    'nav_menu': 'wp/v2/menus',
+    'link_category': 'wp/v2/link_categories'
   };
   
-  return endpointMap[taxonomy] || taxonomy;
+  return endpointMap[taxonomy] || `wp/v2/${taxonomy}`;
 }
 
 // Helper function to get the correct content endpoint
 function getContentEndpoint(contentType: string): string {
   const endpointMap: Record<string, string> = {
-    'post': 'posts',
-    'page': 'pages'
+    'post': 'wp/v2/posts',
+    'page': 'wp/v2/pages'
   };
   
-  return endpointMap[contentType] || contentType;
+  return endpointMap[contentType] || `wp/v2/${contentType}`;
 }
 
 // Schema definitions

@@ -22,9 +22,9 @@ export async function initWordPress() {
   // Ensure the API URL has the WordPress REST API path
   let baseURL = apiUrl.endsWith('/') ? apiUrl : `${apiUrl}/`;
   
-  // Add the WordPress REST API path if not already included
-  if (!baseURL.includes('/wp-json/wp/v2')) {
-    baseURL = baseURL + 'wp-json/wp/v2/';
+  // Add the WordPress REST API base path if not already included
+  if (!baseURL.includes('/wp-json/')) {
+    baseURL = baseURL + 'wp-json/';
   } else if (!baseURL.endsWith('/')) {
     // Ensure the URL ends with a trailing slash
     baseURL = baseURL + '/';

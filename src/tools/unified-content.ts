@@ -19,7 +19,7 @@ async function getPostTypes(forceRefresh = false) {
 
   try {
     logToFile('Fetching post types from API');
-    const response = await makeWordPressRequest('GET', 'types');
+    const response = await makeWordPressRequest('GET', 'wp/v2/types');
     postTypesCache = response;
     cacheTimestamp = now;
     return response;
@@ -32,11 +32,11 @@ async function getPostTypes(forceRefresh = false) {
 // Helper function to get the correct endpoint for a content type
 function getContentEndpoint(contentType: string): string {
   const endpointMap: Record<string, string> = {
-    'post': 'posts',
-    'page': 'pages'
+    'post': 'wp/v2/posts',
+    'page': 'wp/v2/pages'
   };
   
-  return endpointMap[contentType] || contentType;
+  return endpointMap[contentType] || `wp/v2/${contentType}`;
 }
 
 // Helper function to parse URL and extract slug and potential post type hints

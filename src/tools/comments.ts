@@ -96,7 +96,7 @@ export const commentTools: Tool[] = [
 export const commentHandlers = {
   list_comments: async (params: ListCommentsParams) => {
     try {
-      const response = await makeWordPressRequest('GET', "comments", params);
+      const response = await makeWordPressRequest('GET', "wp/v2/comments", params);
       const comments: WPComment[] = response;
       return {
         toolResult: {
@@ -116,7 +116,7 @@ export const commentHandlers = {
   
   get_comment: async (params: GetCommentParams) => {
     try {
-      const response = await makeWordPressRequest('GET', `comments/${params.id}`);
+      const response = await makeWordPressRequest('GET', `wp/v2/comments/${params.id}`);
       const comment: WPComment = response;
       return {
         toolResult: {
@@ -136,7 +136,7 @@ export const commentHandlers = {
   
   create_comment: async (params: CreateCommentParams) => {
     try {
-      const response = await makeWordPressRequest('POST', "comments", params);
+      const response = await makeWordPressRequest('POST', "wp/v2/comments", params);
       const comment: WPComment = response;
       return {
         toolResult: {
@@ -157,7 +157,7 @@ export const commentHandlers = {
   update_comment: async (params: UpdateCommentParams) => {
     try {
       const { id, ...updateData } = params;
-      const response = await makeWordPressRequest('POST', `comments/${id}`, updateData);
+      const response = await makeWordPressRequest('POST', `wp/v2/comments/${id}`, updateData);
       const comment: WPComment = response;
       return {
         toolResult: {
@@ -177,7 +177,7 @@ export const commentHandlers = {
   
   delete_comment: async (params: DeleteCommentParams) => {
     try {
-      const response = await makeWordPressRequest('DELETE', `comments/${params.id}`, { force: params.force });
+      const response = await makeWordPressRequest('DELETE', `wp/v2/comments/${params.id}`, { force: params.force });
       const comment: WPComment = response;
       return {
         toolResult: {
