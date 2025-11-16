@@ -1,12 +1,12 @@
 {
-  "name": "@instawp/mcp-wp",
-  "version": "0.0.3",
-  "description": "A Model Context Protocol server for interacting with WordPress.",
+  "name": "@wplaunchify/fluent-community-mcp",
+  "version": "1.0.0",
+  "description": "A Model Context Protocol server for WordPress + FluentCommunity. Includes all WordPress tools plus FluentCommunity management (posts, spaces, comments, members, analytics).",
   "type": "module",
   "main": "./build/server.js",
   "exports": "./build/server.js",
   "bin": {
-    "mcp-wp": "./build/server.js"
+    "fluent-community-mcp": "./build/server.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -20,14 +20,15 @@
   },
   "keywords": [
     "wordpress",
+    "fluent-community",
     "mcp",
     "server",
     "claude",
     "ai",
-    "instawp"
+    "cursor"
   ],
-  "author": "Claude",
-  "license": "GPL-3.0-or-later",
+  "author": "1WD LLC",
+  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.4.1",
     "axios": "^1.6.7",
