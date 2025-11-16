@@ -6,6 +6,10 @@
 
 FluentCommunity Manager is a WordPress plugin that provides powerful editing tools AND a complete MCP (Model Context Protocol) server for AI-powered management of your FluentCommunity content. This enables AI assistants like Claude to interact directly with your community through natural language.
 
+<a href="https://glama.ai/mcp/servers/@wplaunchify/fluent-community-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@wplaunchify/fluent-community-mcp/badge" alt="FluentCommunity Manager MCP server" />
+</a>
+
 ## Features
 
 ### WordPress Plugin Features
