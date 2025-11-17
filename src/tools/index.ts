@@ -8,8 +8,9 @@ import { userTools, userHandlers } from './users.js';
 import { pluginRepositoryTools, pluginRepositoryHandlers } from './plugin-repository.js';
 import { commentTools, commentHandlers } from './comments.js';
 import { fluentCommunityTools, fluentCommunityHandlers } from './fluent-community.js';
+import { fluentCommunityDesignTools, fluentCommunityDesignHandlers } from './fluent-community-design.js';
 
-// Combine all tools - WordPress + FluentCommunity = ~60 tools
+// Combine all tools - WordPress + FluentCommunity = ~64 tools
 export const allTools: Tool[] = [
   ...unifiedContentTools,        // 8 tools (replaces posts, pages, custom-post-types)
   ...unifiedTaxonomyTools,       // 8 tools (replaces categories, custom-taxonomies)
@@ -18,7 +19,8 @@ export const allTools: Tool[] = [
   ...userTools,                 // ~5 tools
   ...pluginRepositoryTools,     // ~2 tools
   ...commentTools,              // ~5 tools
-  ...fluentCommunityTools       // 22 tools (FluentCommunity management)
+  ...fluentCommunityTools,      // 22 tools (FluentCommunity management)
+  ...fluentCommunityDesignTools // 6 tools (FluentCommunity design/styling)
 ];
 
 // Combine all handlers
@@ -30,5 +32,6 @@ export const toolHandlers = {
   ...userHandlers,
   ...pluginRepositoryHandlers,
   ...commentHandlers,
-  ...fluentCommunityHandlers
+  ...fluentCommunityHandlers,
+  ...fluentCommunityDesignHandlers
 };
