@@ -24,9 +24,13 @@ const server = new McpServer({
 });
 
 // Register each tool from our tools list with its corresponding handler
+let registeredCount = 0;
 for (const tool of allTools) {
     const handler = toolHandlers[tool.name as keyof typeof toolHandlers];
-    if (!handler) continue;
+    if (!handler) {
+        console.error(`⚠️  No handler for tool: ${tool.name}`);
+        continue;
+    }
     
     const wrappedHandler = async (args: any) => {
         // The handler functions are already typed with their specific parameter types
@@ -55,9 +59,11 @@ for (const tool of allTools) {
     // const parsedSchema = z.any().optional().parse(jsonSchema);
 
     const zodSchema = z.object(tool.inputSchema.properties as z.ZodRawShape); 
-    server.tool(tool.name, zodSchema.shape, wrappedHandler)
-
+    server.tool(tool.name, zodSchema.shape, wrappedHandler);
+    registeredCount++;
 }
+
+console.error(`✅ Registered ${registeredCount} of ${allTools.length} tools`);
 
 async function main() {
     const { logToFile } = await import('./wordpress.js');

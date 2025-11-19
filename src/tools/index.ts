@@ -17,24 +17,24 @@ import { mlImageEditorTools, mlImageEditorHandlers } from './ml-image-editor.js'
 import { fluentAffiliateTools, fluentAffiliateHandlers } from './fluent-affiliate.js';
 import { mlMediaHubTools, mlMediaHubHandlers } from './ml-media-hub.js';
 
-// Combine all tools - WordPress + FluentCommunity + FluentCRM + FluentCart + FluentAffiliate + ML Canvas + ML Image Editor + ML Media Hub = 153+ tools
+// Combine all tools - WordPress + FluentCommunity + FluentCRM + FluentCart + ML Plugins = 145 tools
 export const allTools: Tool[] = [
-  ...unifiedContentTools,        // 8 tools (replaces posts, pages, custom-post-types)
-  ...unifiedTaxonomyTools,       // 8 tools (replaces categories, custom-taxonomies)
-  ...pluginTools,               // ~5 tools
-  ...mediaTools,                // ~5 tools
-  ...userTools,                 // ~5 tools
-  ...pluginRepositoryTools,     // ~2 tools
-  ...commentTools,              // ~5 tools
-  ...fluentCommunityTools,      // 22 tools (FluentCommunity management)
-  ...fluentCommunityDesignTools, // 6 tools (FluentCommunity design/styling)
+  ...unifiedContentTools,        // 8 tools (unified content management)
+  ...unifiedTaxonomyTools,       // 8 tools (unified taxonomy management)
+  ...pluginTools,                // 5 tools (WordPress plugin management)
+  ...mediaTools,                 // 4 tools (WordPress media library)
+  ...userTools,                  // 5 tools (WordPress user management)
+  ...pluginRepositoryTools,      // 2 tools (WordPress.org plugin repository)
+  ...commentTools,               // 5 tools (WordPress comments)
+  ...fluentCommunityTools,       // 21 tools (FluentCommunity spaces, posts, members)
+  ...fluentCommunityDesignTools, // 6 tools (FluentCommunity colors, branding, CSS)
   ...fluentCommunityLayoutTools, // 2 tools (FluentCommunity layout control)
-  ...fluentCRMTools,            // 20 tools (FluentCRM management)
-  ...fluentCartTools,           // 16 tools (FluentCart e-commerce)
-  ...fluentAffiliateTools,      // 25 tools (FluentAffiliate marketing)
-  ...mlCanvasTools,             // 3 tools (ML Canvas Block custom pages + surgical editing)
-  ...mlImageEditorTools,        // 8 tools (ML Image Editor AI generation/editing)
-  ...mlMediaHubTools            // 10 tools (ML Media Hub P2P image search & icon import)
+  ...fluentCRMTools,             // 19 tools (FluentCRM contacts, lists, campaigns)
+  ...fluentCartTools,            // 31 tools (FluentCart products, orders, customers)
+  ...fluentAffiliateTools,       // 0 tools (FluentAffiliate - coming soon)
+  ...mlCanvasTools,              // 3 tools (ML Canvas Block surgical HTML editing)
+  ...mlImageEditorTools,         // 8 tools (ML Image Editor AI generation/editing)
+  ...mlMediaHubTools             // 18 tools (ML Media Hub: basic + advanced search/filters)
 ];
 
 // Combine all handlers

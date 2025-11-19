@@ -1,7 +1,7 @@
 {
   "name": "@wplaunchify/fluent-community-mcp",
-  "version": "2.4.1",
-  "description": "Universal MCP for WordPress + Complete Fluent Suite (Community, CRM, Cart, Affiliate) + ML Plugins (Canvas, Image Editor, Media Hub). 153 tools including Google Images search, Noun Project icons, AI image generation & surgical HTML editing.",
+  "version": "2.5.0",
+  "description": "Universal MCP for WordPress + Complete Fluent Suite (Community, CRM, Cart) + ML Plugins (Canvas, Image Editor, Media Hub). 145 tools including advanced Google Images search with color/size/license filters, Noun Project icons with style/collection browsing, search presets, AI image generation & surgical HTML editing.",
   "type": "module",
   "main": "./build/server.js",
   "exports": "./build/server.js",
