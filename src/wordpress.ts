@@ -32,6 +32,7 @@ export async function initWordPress() {
 
   const config: AxiosRequestConfig = {
     baseURL,
+    timeout: 120000, // 120 seconds for AI image generation (OpenRouter can be slow)
     headers: {
       'Content-Type': 'application/json',
     },

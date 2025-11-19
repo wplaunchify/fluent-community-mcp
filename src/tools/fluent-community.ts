@@ -476,12 +476,13 @@ export const fluentCommunityHandlers = {
 
   fc_add_space_member: async (args: any) => {
     try {
-      const memberData = {
-        user_id: args.user_id,
+      // WordPress endpoint expects URL parameters for POST
+      const queryParams = new URLSearchParams({
+        user_id: args.user_id.toString(),
         role: args.role || 'member',
-      };
+      });
       
-      const response = await makeWordPressRequest('POST', `fc-manager/v1/spaces/${args.space_id}/members`, memberData);
+      const response = await makeWordPressRequest('POST', `fc-manager/v1/spaces/${args.space_id}/members?${queryParams.toString()}`);
       return { toolResult: { content: [{ type: 'text', text: JSON.stringify(response, null, 2) }] } };
     } catch (error: any) {
       return { toolResult: { isError: true, content: [{ type: 'text', text: `Error: ${error.message}` }] } };

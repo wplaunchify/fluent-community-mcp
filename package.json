@@ -1,7 +1,7 @@
 {
   "name": "@wplaunchify/fluent-community-mcp",
-  "version": "1.1.0",
-  "description": "A Model Context Protocol server for WordPress + FluentCommunity. Includes all WordPress tools plus FluentCommunity management (posts, spaces, comments, members, analytics).",
+  "version": "2.4.1",
+  "description": "Universal MCP for WordPress + Complete Fluent Suite (Community, CRM, Cart, Affiliate) + ML Plugins (Canvas, Image Editor, Media Hub). 153 tools including Google Images search, Noun Project icons, AI image generation & surgical HTML editing.",
   "type": "module",
   "main": "./build/server.js",
   "exports": "./build/server.js",

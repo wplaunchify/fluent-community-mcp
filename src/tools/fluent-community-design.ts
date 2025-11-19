@@ -89,11 +89,8 @@ export const fluentCommunityDesignTools: Tool[] = [
 export const fluentCommunityDesignHandlers: Record<string, (args: any) => Promise<any>> = {
   fc_get_colors: async (args: any) => {
     try {
-      const params: any = {
-        mode: args.mode || 'light'
-      };
-      
-      const response = await makeWordPressRequest('GET', 'fc-manager/v1/settings/colors', params);
+      // Use FluentCommunity's NATIVE color-config endpoint
+      const response = await makeWordPressRequest('GET', 'fluent-community/v2/settings/color-config');
       return { toolResult: { content: [{ type: 'text', text: JSON.stringify(response, null, 2) }] } };
     } catch (error: any) {
       return { toolResult: { isError: true, content: [{ type: 'text', text: `Error: ${error.message}` }] } };
@@ -102,12 +99,13 @@ export const fluentCommunityDesignHandlers: Record<string, (args: any) => Promis
 
   fc_update_colors: async (args: any) => {
     try {
+      // Use FluentCommunity's NATIVE color-config endpoint
       const data = {
         mode: args.mode || 'light',
         colors: args.colors
       };
       
-      const response = await makeWordPressRequest('PUT', 'fc-manager/v1/settings/colors', data);
+      const response = await makeWordPressRequest('POST', 'fluent-community/v2/settings/color-config', data);
       return { toolResult: { content: [{ type: 'text', text: JSON.stringify(response, null, 2) }] } };
     } catch (error: any) {
       return { toolResult: { isError: true, content: [{ type: 'text', text: `Error: ${error.message}` }] } };
@@ -116,7 +114,8 @@ export const fluentCommunityDesignHandlers: Record<string, (args: any) => Promis
 
   fc_get_portal_settings: async (args: any) => {
     try {
-      const response = await makeWordPressRequest('GET', 'fc-manager/v1/settings/portal');
+      // Use FluentCommunity's NATIVE customization-settings endpoint
+      const response = await makeWordPressRequest('GET', 'fluent-community/v2/settings/customization-settings');
       return { toolResult: { content: [{ type: 'text', text: JSON.stringify(response, null, 2) }] } };
     } catch (error: any) {
       return { toolResult: { isError: true, content: [{ type: 'text', text: `Error: ${error.message}` }] } };
@@ -125,11 +124,12 @@ export const fluentCommunityDesignHandlers: Record<string, (args: any) => Promis
 
   fc_update_portal_settings: async (args: any) => {
     try {
+      // Use FluentCommunity's NATIVE customization-settings endpoint
       const data = {
         settings: args.settings
       };
       
-      const response = await makeWordPressRequest('PUT', 'fc-manager/v1/settings/portal', data);
+      const response = await makeWordPressRequest('POST', 'fluent-community/v2/settings/customization-settings', data);
       return { toolResult: { content: [{ type: 'text', text: JSON.stringify(response, null, 2) }] } };
     } catch (error: any) {
       return { toolResult: { isError: true, content: [{ type: 'text', text: `Error: ${error.message}` }] } };
@@ -138,7 +138,8 @@ export const fluentCommunityDesignHandlers: Record<string, (args: any) => Promis
 
   fc_get_branding: async (args: any) => {
     try {
-      const response = await makeWordPressRequest('GET', 'fc-manager/v1/settings/branding');
+      // Use FluentCommunity's NATIVE customization-settings endpoint (branding is part of customization)
+      const response = await makeWordPressRequest('GET', 'fluent-community/v2/settings/customization-settings');
       return { toolResult: { content: [{ type: 'text', text: JSON.stringify(response, null, 2) }] } };
     } catch (error: any) {
       return { toolResult: { isError: true, content: [{ type: 'text', text: `Error: ${error.message}` }] } };
@@ -147,15 +148,18 @@ export const fluentCommunityDesignHandlers: Record<string, (args: any) => Promis
 
   fc_update_branding: async (args: any) => {
     try {
+      // Use FluentCommunity's NATIVE customization-settings endpoint (branding is part of customization)
       const data = {
         branding: args.branding
       };
       
-      const response = await makeWordPressRequest('PUT', 'fc-manager/v1/settings/branding', data);
+      const response = await makeWordPressRequest('POST', 'fluent-community/v2/settings/customization-settings', data);
       return { toolResult: { content: [{ type: 'text', text: JSON.stringify(response, null, 2) }] } };
     } catch (error: any) {
       return { toolResult: { isError: true, content: [{ type: 'text', text: `Error: ${error.message}` }] } };
     }
   }
 };
+
+
 
